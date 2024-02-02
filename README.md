@@ -1,2 +1,2 @@
-[TESTS_JAVA]
-
+TESTS_JAVA
+----------
