@@ -1,5 +1,10 @@
-GIT_CONFIG*
-config
+### VS Code ###
+.vscode/
+.vs/
+
+### PyCharm ###
+.idea/
+__pycache__/
 
 ### Eclipse ###
 .apt_generated
@@ -23,10 +28,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### VS Code ###
-.vscode/
-
-# Maven
+### Maven ###
 log/
 target/
 
@@ -37,11 +39,13 @@ target/
 /nbdist/
 /.nb-gradle/
 
-# Compiled class file
-*.class
+.jmix
 
-# Log file
-*.log
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
 
 # BlueJ files
 *.ctxt
@@ -60,3 +64,18 @@ target/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+### ФАЙЛЫ ###
+GIT_CONFIG*
+config*
+*.log
+
+### КАТАЛОГИ ###
+clickers/
+LOGS/
+LOG/
+RE/
+Replace if-else Statements/
+out/
+EXE/
+WORK/
