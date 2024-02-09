@@ -69,6 +69,7 @@ hs_err_pid*
 GIT_CONFIG*
 config*
 *.log
+*.bat
 
 ### КАТАЛОГИ ###
 clickers/
