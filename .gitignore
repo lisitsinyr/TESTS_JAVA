@@ -1,3 +1,23 @@
+# строки начинающиеся на # - это комментарии, они не учитываются
+
+# Исключить все файлы с расширение .a
+.a
+
+# Но отслеживать файл lib.a даже если он подпадает под исключение выше
+!lib.a
+
+# Исключить файл TODO в корневом каталоге, но не файл в subdir/TODO
+/TODO
+
+# Игнорировать все файлы в каталоге build/
+build/
+
+# Игнорировать файл doc/notes.txt, но не файл doc/server/arch.txt
+doc/*.txt
+
+# Игнорировать все .txt файлы в каталоге doc/
+doc/**/*.txt
+
 ### VS Code ###
 .vscode/
 .vs/
@@ -5,6 +25,21 @@
 ### PyCharm ###
 .idea/
 __pycache__/
+
+### Исключить все файлы ###
+GIT_CONFIG*
+config*
+PROJECTS_LYR*
+
+### Исключить все файлы с расширение ###
+*.log
+*.bat
+
+### Игнорировать все файлы в каталогах ###
+LOGS/
+LOG/
+out/
+EXE/
 
 ### Eclipse ###
 .apt_generated
@@ -64,19 +99,3 @@ build/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-
-### ФАЙЛЫ ###
-GIT_CONFIG*
-config*
-*.log
-*.bat
-
-### КАТАЛОГИ ###
-clickers/
-LOGS/
-LOG/
-RE/
-Replace if-else Statements/
-out/
-EXE/
-WORK/
