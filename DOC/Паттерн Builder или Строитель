@@ -1,0 +1,57 @@
+﻿https://t.me/c/2074108051/549
+Паттерн Builder или Строитель
+
+Этот паттерн является порождающим и используется для создания объектов с большим количеством необязательных полей.
+
+Паттерн Строитель инкапсулирует конструирование продукта и позволяет разделить его на этапы
+"Паттерны проектирования" Э. Фриман
+
+Давайте на примере:
+У нас есть класс Person с обязательным полем name и необязательными полями age и address.
+public class Person {
+    private final String name; // Обязательное
+    private int age; // Необязательное
+    private String address; // Необязательное
+
+    private Person(Builder builder) {
+        this.name = builder.name;
+        this.age = builder.age;
+        this.address = builder.address;
+    }
+
+// Геттеры
+
+    public static class Builder {
+        private final String name;
+        private int age;
+        private String address;
+
+        public Builder(String name) {
+            this.name = name;
+        }
+
+        public Builder age(int age) {
+            this.age = age;
+            return this;
+        }
+
+        public Builder address(String address) {
+            this.address = address;
+            return this;
+        }
+
+        public Person build() {
+           return new Person(this);
+        }
+    }
+}
+Вложенный класс Builder используется для "поэтапного и инкапсулированного" конструирования объекта Person. Мы можем установить необходимые поля с помощью методов age() и address(), а затем создать объект Person с помощью метода build():
+var person = new Person.Builder("John")
+                        .age(30)
+                        .address("My Street")
+                        .build();
+Без паттерна Builder нам бы пришлось делать 4 конструктора для двух необязательных полей, чтобы покрыть возможные варианты создания объекта!
+
+Таким образом, шаблон Builder обеспечивает удобный способ создания объектов с различными составом полей, делая код более читаемым и гибким, но будет плохим решением если все поля обязательные.
+
+Кстати, библиотека lombok предлагает очень удобную аннотацию @Builder.

@@ -1,0 +1,35 @@
+﻿https://t.me/java_tips_and_tricks/932
+⌨️ Паттерн проектирования: Singleton
+
+Singleton — это паттерн проектирования, который обеспечивает создание единственного экземпляра класса и предоставляет глобальную точку доступа к этому экземпляру. Он часто используется в ситуациях, где нужен строгий контроль над созданием объекта, например, в менеджерах ресурсов или конфигурациях приложения.
+
+Реализации паттерна Singleton:
+
+public class Singleton {
+    private static volatile Singleton instance;
+
+    private Singleton() {
+        // Приватный конструктор
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) { // Проверка на null для улучшения производительности
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+
+Использование:
+
+public class Main {
+    public static void main(String[] args) {
+        Singleton singleton = Singleton.getInstance();
+    }
+}
+
+#java #Singleton

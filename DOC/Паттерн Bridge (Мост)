@@ -1,0 +1,59 @@
+﻿https://t.me/java_tips_and_tricks/942
+Паттерн Bridge (Мост)
+
+Паттерн Bridge позволяет разделить абстракцию и её реализацию, чтобы они могли развиваться независимо друг от друга. Это достигается через создание интерфейса (абстракции) и реализаций этого интерфейса. Такой подход позволяет избежать жесткой привязки между системой абстракций и ее реализациями.
+
+Давайте посмотрим на пример, который иллюстрирует паттерн Bridge в контексте рисования фигур:
+
+ // Реализация интерфейса для рисования
+interface DrawingAPI {
+    void drawCircle(double x, double y, double radius);
+}
+
+// Конкретная реализация для рисования на графическом окне
+class DrawingAPI1 implements DrawingAPI {
+    public void drawCircle(double x, double y, double radius) {
+        System.out.println("API1.circle at {" + x + ", " + y + "} radius " + radius);
+    }
+}
+
+// Конкретная реализация для рисования в ASCII
+class DrawingAPI2 implements DrawingAPI {
+    public void drawCircle(double x, double y, double radius) {
+        System.out.println("API2.circle at {" + x + ", " + y + "} radius " + radius);
+    }
+}
+
+// Абстракция
+abstract class Circle {
+    protected DrawingAPI drawingAPI; // Ссылка на реализацию
+
+    protected Circle(DrawingAPI drawingAPI) {
+        this.drawingAPI = drawingAPI;
+    }
+
+    public abstract void draw(); // Метод для рисования
+    public abstract void resizeByPercentage(double pct); // Метод для изменения размера
+}
+
+// Конкретная абстракция
+class CircleWithABorder extends Circle {
+    private double x, y, radius; // Параметры круга
+
+    public CircleWithABorder(double x, double y, double radius, DrawingAPI drawingAPI) {
+        super(drawingAPI); // Передаем реализацию в абстракцию
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    public void draw() {
+        drawingAPI.drawCircle(x, y, radius); // Используем реализацию для рисования
+    }
+
+    public void resizeByPercentage(double pct) {
+        radius *= (1 + pct / 100); // Меняем размер круга
+    }
+}
+
+#java #bridge #pattern
