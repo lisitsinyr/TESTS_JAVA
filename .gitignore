@@ -123,7 +123,12 @@ LOG/
 OUT/
 EXE/
 WORK/
-00.INFO/
+
+### 00.ARCHIVE/
+### 00.INFO/
+### 00.TEST/
 .INFO/
+.info.md
+*.mhtml
 
 /target
