@@ -80,6 +80,8 @@ hs_err_pid*
 *.rar
 *.egg-info
 *.ipynb_checkpoints
+*.jpg
+*.pdf
 ### *.bat
 
 ### -------------------------------------
@@ -128,3 +130,4 @@ EXE/
 WORK/
 Writerside/
 .INFO/
+.ARCH/
